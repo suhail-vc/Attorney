@@ -11,7 +11,7 @@
             <ul class="forms-list">
               <li *ngFor="let formList of formLists">
                 <div class="checkbox">
-                  <label><input type="checkbox" [name]="formList.name" [id]="formList.id" [checked]='formList.default' [disabled]='formList.default' (change)='addForm($event)' >From - {{formList.name}}</label>
+                  <label><input type="checkbox" [name]="formList.name" [id]="formList.id" [checked]='formList.default' [disabled]='formList.default' (change)='addForm($event)' >Form - {{formList.name}}</label>
                 </div>
               </li>
             </ul>

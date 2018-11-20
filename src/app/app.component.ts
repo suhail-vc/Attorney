@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
     } else {
       const index = this.pills.findIndex(x => x.id === evt.target.id);
       this.pills.splice(index, 1);
+      this.router.navigate(['form' + this.pills[this.pills.length-1].name]);
     }
   }
 }
