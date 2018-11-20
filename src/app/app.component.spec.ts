@@ -1,27 +1,39 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-describe('AppComponent', () => {
+import { RouterTestingModule } from '@angular/router/testing';
+describe('AppComponent Integration', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      imports: [
+        RouterTestingModule.withRoutes([
+        ])
+      ]
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+
+  beforeEach(async(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    component.ngOnInit();
   }));
-  it(`should have as title 'Attorney-cases'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Attorney-cases');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should render forms-list class', () => {
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Attorney-cases!');
-  }));
+    const de = fixture.debugElement.queryAll(By.css('.forms-list input'));
+    expect(de.length).toBeGreaterThanOrEqual(component.formLists.length);
+  });
+  it('should render nav-pills class', () => {
+    fixture.detectChanges();
+    const de = fixture.debugElement.queryAll(By.css('.nav-pills li'));
+    expect(de.length).toBeGreaterThanOrEqual(component.pills.length);
+  });
+  it('should render router-outlet', () => {
+    fixture.detectChanges();
+    component.ngOnInit();
+    const de = fixture.nativeElement.querySelector('router-outlet');
+    expect(de).toBeDefined();
+  });
 });

@@ -1,0 +1,22 @@
+<h4>Form A7</h4>
+<hr>
+
+<form [formGroup]="formA7" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" formControlName="fullName" class="form-control" />
+  </div>
+  <div class="form-group">
+      <label>Contact Number</label>
+      <input type="text" formControlName="contactNumber" class="form-control" />
+  </div>
+  <div class="form-group">
+      <label>Gender</label>
+      <div>
+          <input type="radio" formControlName="gender" value="Male" />Male
+          <input type="radio" formControlName="gender" value="Female" />Female
+          <input type="radio" formControlName="gender" value="Other" />Other
+      </div>
+      
+  </div>
+</form>
