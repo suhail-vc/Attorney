@@ -8,6 +8,7 @@
         <div class="col-sm-4 height-100">
             <h3>Forms Option</h3>
             <p>Here is the list of forms to be filled, few are the required forms that are mandatory to be filled, please select form of your choice to add other forms into your case.</p>
+            <!--Show all available forms list-->
             <ul class="forms-list">
               <li *ngFor="let formList of formLists">
                 <div class="checkbox">
@@ -25,6 +26,7 @@
                   </li>
               </ul>
             </div>
+            <!--Set different forms dynamically-->
             <router-outlet></router-outlet>
           </div>         
         </div>

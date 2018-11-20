@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   constructor(public router: Router) {}
   ngOnInit(): void {
     this.formLists = this.formListing.formListing;
+
+    // if forms are deafult form open it 
     this.formLists.forEach(formSelected => {
       if (formSelected.default) {
         this.pills.push({
@@ -23,6 +25,12 @@ export class AppComponent implements OnInit {
       }
     });
   }
+  /**
+   * Params - Checkbox event 
+   * add pills if checkbox is selected
+   * remove pills id checkbox is deselected a
+   * set last open pill to seleced if deselect
+   */
   addForm(evt) {
     if (evt.target.checked) {
       this.pills.push ({
