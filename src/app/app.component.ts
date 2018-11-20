@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsListing } from './formListing';
+import { FormsListing } from '../assets/formListing';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
